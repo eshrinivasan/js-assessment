@@ -2,7 +2,7 @@ exports = (typeof window === 'undefined') ? global : window;
 
 exports.objectsAnswers =  {
   alterContext : function(fn, obj) {
-
+  	return fn.call(obj);
   },
 
   alterObjects : function(constructor, greeting) {
@@ -10,6 +10,10 @@ exports.objectsAnswers =  {
   },
 
   iterate : function(obj) {
-
+  	for(var i in obj){
+  		if(obj.hasOwnProperty(i)){
+  			return obj[i];
+  		}
+  	}
   }
 };
